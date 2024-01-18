@@ -7,6 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
+        primary: {
+          color: "#161514",
+          header: "#f1c232",
+          text: "#f1c232",
+        },
         secondary: {
           DEFAULT: colors.neutral[200],
           hover: colors.neutral[300],
