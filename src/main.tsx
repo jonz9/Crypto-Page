@@ -13,7 +13,7 @@ if (!PUBLISHABLE_KEY) {
 
 root.render(
   <React.StrictMode>
-    <ClerkProvider publishableKey="PUBLISHABLE_KEY">
+    <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
       <App />
     </ClerkProvider>
   </React.StrictMode>

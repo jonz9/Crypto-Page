@@ -6,11 +6,16 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        chakra: ["Chakra Petch", "sans-serif"],
+      },
       colors: {
         primary: {
           color: "#161514",
           header: "#f1c232",
-          text: "#f1c232",
+          header_hover: "#ba951e",
+          text: "#F2F7F2",
+          hover: "#465362",
         },
         secondary: {
           DEFAULT: colors.neutral[200],

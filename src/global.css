@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border list-none p-0 m-0 scroll-smooth;
+  }
+}
+
+@layer utilities {
+  .navlink {
+    @apply font-semibold text-lg;
+  }
+
+  .hover-navbutton {
+    @apply transition ease-in hover:bg-primary-hover p-2 rounded-3xl hover:duration-100;
+  }
+
+  .font-main {
+    @apply font-chakra;
+  }
+}
