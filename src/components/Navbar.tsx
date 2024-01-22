@@ -1,6 +1,10 @@
-import React from "react";
 import Logo from "../assets/Logo.png";
-import { SignInButton } from "@clerk/clerk-react";
+import {
+  SignInButton,
+  SignOutButton,
+  SignedIn,
+  SignedOut,
+} from "@clerk/clerk-react";
 import { Button } from "./Button";
 
 const Navbar = () => {
@@ -34,16 +38,32 @@ const Navbar = () => {
       </div>
 
       <div className="flex justify-center items-center gap-4 m-4">
-        <h2 className="font-main font-bold text-xl text-primary-header">Welcome to CrypoKet!</h2>
-        <SignInButton>
-          <Button
-            variant={"main"}
-            size={"default"}
-            className="font-main font-bold transition ease-in duration-150 active:text-primary-header"
-          >
-            Sign In or Register
-          </Button>
-        </SignInButton>
+        <SignedOut>
+          <h2 className="font-main font-bold text-xl text-primary-header">
+            Welcome to CrypoKet!
+          </h2>
+          <SignInButton>
+            <Button
+              variant={"main"}
+              size={"default"}
+              className="font-main font-bold transition ease-in duration-150 active:text-primary-header"
+            >
+              Sign In or Register
+            </Button>
+          </SignInButton>
+        </SignedOut>
+        <SignedIn>
+          <h2 className="font-main font-bold text-xl text-primary-header">
+            Welcome {}
+          </h2>
+          <SignOutButton>
+            <Button
+              variant={"main"}
+              size={"default"}
+              className="font-main font-bold transition ease-in duration-150 active:text-primary-header"
+            >Sign Out</Button>
+          </SignOutButton>
+        </SignedIn>
       </div>
     </div>
   );

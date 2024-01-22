@@ -30,6 +30,8 @@ export default {
   },
   plugins: [
     require("tailwindcss-debug-screens"),
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    require('tailwind-scrollbar')({ nocompatible: true }),
     // require("tailwind-brand-colors"),
   ],
 };
