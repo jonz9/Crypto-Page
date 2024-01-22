@@ -4,7 +4,7 @@ import { Button } from "./Button";
 
 const Hero = () => {
   return (
-    <div className="flex text-primary-text h-full max-w-screen justify-center items-center">
+    <div className="flex text-primary-text h-full max-w-screen justify-center items-center bg-primary-color">
       <div className="flex flex-col py-40 px-20 pl-40 w-full border-r-2 border-slate-700 justify-center items-start gap-8">
         <h1 className="font-main font-bold text-7xl">BUY. SELL. TRADE. TRUST.</h1>
         <h2 className="font-main text-2xl">
@@ -24,7 +24,7 @@ const Hero = () => {
           </SignInButton>
         </div>
       </div>
-      <div className="flex py-60 w-full justify-center items-center">
+      <div className="flex w-full justify-center items-center">
         <h1>second half</h1>
       </div>
     </div>

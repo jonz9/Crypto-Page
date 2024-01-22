@@ -8,14 +8,12 @@ import Rewards from "../components/Rewards";
 
 const HomePage = () => {
   return (
-    <div className="max-h-screen max-w-screen flex flex-col">
+    <div className="max-h-screen max-w-screen flex flex-col bg-primary-color">
       <Navbar />
-      <div className="flex flex-col max-w-screen max-h-screen bg-primary-color">
-        <Hero />
-        <CompanyInfo />
-        <Rewards />
-        <FAQ />
-      </div>
+      <Hero />
+      <CompanyInfo />
+      <Rewards />
+      <FAQ />
       <Footer />
     </div>
   );
