@@ -12,6 +12,7 @@ export default {
       colors: {
         primary: {
           color: "#161514",
+          rewards: "#2b2a28",
           header: "#f1c232",
           header_hover: "#ba951e",
           text: "#F2F7F2",
@@ -31,7 +32,7 @@ export default {
   plugins: [
     require("tailwindcss-debug-screens"),
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    require('tailwind-scrollbar')({ nocompatible: true }),
+    require("tailwind-scrollbar")({ nocompatible: true }),
     // require("tailwind-brand-colors"),
   ],
 };
