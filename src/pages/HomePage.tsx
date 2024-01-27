@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import CompanyInfo from "../components/CompanyInfo";
 import FAQ from "../components/FAQ";
 import Rewards from "../components/Rewards";
+import End from "../components/End";
 
 const HomePage = () => {
   return (
@@ -15,6 +16,7 @@ const HomePage = () => {
       <Rewards />
       <FAQ />
       <Footer />
+      <End />
     </div>
   );
 };

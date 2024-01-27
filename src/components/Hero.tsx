@@ -1,6 +1,6 @@
 import { SignInButton } from "@clerk/clerk-react";
-import React from "react";
 import { Button } from "./Button";
+import DollarSign from "./DollarSign";
 
 const Hero = () => {
   return (
@@ -31,7 +31,7 @@ const Hero = () => {
         </div>
       </div>
       <div className="flex w-full justify-center items-center">
-        <h1>second half</h1>
+        <DollarSign width={500} height={500} />
       </div>
     </div>
   );

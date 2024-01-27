@@ -22,10 +22,10 @@
   }
 
   .even-child {
-    @apply font-main text-2xl p-2 bg-primary-rewards list-decimal
+    @apply font-main text-2xl p-2 bg-primary-rewards list-[upper-roman]
   }
 
   .odd-child {
-    @apply font-main text-2xl p-2 bg-primary-color list-decimal
+    @apply font-main text-2xl p-2 bg-primary-color list-[upper-roman]
   }
 }
