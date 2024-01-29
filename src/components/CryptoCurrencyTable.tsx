@@ -2,30 +2,34 @@ import React, { useEffect, useState } from "react";
 import Percentage from "./Percentage";
 import Chart from "./Chart";
 
-const CryptoCurrencyTable = () => {
-  const [currencies, setCurrencies] = useState<unknown[]>([]);
+interface Coin {
+  id: string;
+  market_cap_rank: number;
+  image: string;
+  symbol: string;
+  name: string;
+  current_price: number;
+  price_change_percentage_1h_in_currency: number;
+  price_change_percentage_24h_in_currency: number;
+  price_change_percentage_7dh_in_currency: number;
+  total_volume: number;
+  market_cap: number;
+  sparkline_in_7d: number[];
+}
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const priceUrl =
-          "https://api.coingecko.com/api/v3/coins/markets?vs_currency=CAD&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d&locale=en&precision=2";
-        const response = await fetch(priceUrl);
-        const data = await response.json();
-        console.log(data);
-        setCurrencies(data);
-      } catch (error) {
-        console.log("Failed to retrieve data: " + error);
-      }
-    }
-    fetchData();
-  }, []);
+interface Props {
+  coin: Coin[];
+}
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  function formatToCAD(val) {
-    const formattedValue = val.toLocaleString('en-CA', {
-      style: 'currency',
-      currency: 'CAD'
+const CryptoCurrencyTable: React.FC<Props> = ({ coin }) => {
+  const [currencies, setCurrencies] = useState<Coin[]>([]);
+
+  setCurrencies(coin);
+
+  function formatToCAD(val: any) {
+    const formattedValue = val.toLocaleString("en-CA", {
+      style: "currency",
+      currency: "CAD",
     });
     const trimmedValue = formattedValue.replace(".00", "");
     return trimmedValue;
@@ -68,7 +72,10 @@ const CryptoCurrencyTable = () => {
               <td>{formatToCAD(coin.total_volume)}</td>
               <td>{formatToCAD(coin.market_cap)}</td>
               <td>
-                <Chart sparkLine={coin.sparkline_in_7d} priceChange={coin.price_change_percentage_7dh_in_currency} />
+                <Chart
+                  sparkline={coin.sparkline_in_7d}
+                  priceChange={coin.price_change_percentage_7dh_in_currency}
+                />
               </td>
             </tr>
           ))}

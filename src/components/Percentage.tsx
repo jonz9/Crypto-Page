@@ -1,4 +1,8 @@
-function Percentage({ coin }): unknown {
+interface PercentageProps {
+  coin: number;
+}
+
+function Percentage({ coin }: PercentageProps) {
   function percentageColor() {
     return coin <= 0 ? " falling" : "rising";
   }

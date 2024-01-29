@@ -1,37 +1,39 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState } from 'react'
-import ReactApexChart from 'react-apexcharts'
+import React, { useMemo } from "react";
+import ReactApexChart from "react-apexcharts";
 
 interface ChartProps {
   sparkline: {
     price: number[];
   };
-  priceChange: any;
+  priceChange: number;
 }
 
-function Chart({ sparkline, priceChange }: ChartProps) {
-  const [chartOptions] = useState({
-    series: [{
-      data: [...sparkline.price],
-    }],
+const Chart: React.FC<ChartProps> = ({ sparkline, priceChange }) => {
+  const seriesData = useMemo(
+    () => [{ data: [...sparkline.price] }],
+    [sparkline.price]
+  );
+
+  const chartOptions = {
+    series: seriesData,
     chart: {
       type: "area",
       height: 150,
       sparkline: { enabled: true },
-      animations: {enabled: false},
+      animations: { enabled: false },
     },
     tooltip: { enabled: false },
     stroke: { width: 1 },
     colors: [chartColor()],
-  })
+  };
 
   function chartColor() {
     return priceChange <= 0 ? "#ff3131" : "#25df3e";
   }
 
   return (
-    <ReactApexChart options={chartOptions as any} series={chartOptions.series} className="" />
-  )
-}
+    <ReactApexChart options={chartOptions as any} series={seriesData} className="" />
+  );
+};
 
-export default Chart
+export default Chart;
