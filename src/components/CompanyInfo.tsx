@@ -1,4 +1,3 @@
-import React from "react";
 import Cryptocurrency from "../assets/Cryptocurrency.png";
 
 const CompanyInfo = () => {

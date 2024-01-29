@@ -2,17 +2,15 @@ import React, { useState } from "react";
 import ReactApexChart from "react-apexcharts";
 
 interface ChartProps {
-  sparkline: {
-    price: number[];
-  };
+  sparkline: number[];
   priceChange: number;
 }
 
-const Chart: React.FC<ChartProps> = (sparkline, priceChange) => {
+const Chart: React.FC<ChartProps> = ({ sparkline, priceChange }) => {
   const [chartOptions] = useState({
     series: [
       {
-        data: [...sparkline.price],
+        data: [...sparkline.price], // not getting second array
       },
     ],
     chart: {
