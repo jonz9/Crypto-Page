@@ -1,7 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react'
 import ReactApexChart from 'react-apexcharts'
 
-function Chart({ sparkline, priceChange }) {
+interface ChartProps {
+  sparkline: {
+    price: number[];
+  };
+  priceChange: any;
+}
+
+function Chart({ sparkline, priceChange }: ChartProps) {
   const [chartOptions] = useState({
     series: [{
       data: [...sparkline.price],
@@ -22,7 +30,7 @@ function Chart({ sparkline, priceChange }) {
   }
 
   return (
-    <ReactApexChart options={chartOptions} series={chartOptions.series} className="" />
+    <ReactApexChart options={chartOptions as any} series={chartOptions.series} className="" />
   )
 }
 
