@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar';
-import CryptoCurrencyTable from '../components/CryptoCurrencyTable';
 
 const TradingPage = () => {
   const [data, setData] = useState([]);
@@ -24,7 +23,7 @@ const TradingPage = () => {
   return (
     <div className="max-h-screen max-w-screen flex flex-col bg-primary-color">
       <Navbar />
-      <CryptoCurrencyTable coin={data} />
+      <CryptoCurrencyTable />
     </div>
   );
 }
