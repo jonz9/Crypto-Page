@@ -3,7 +3,7 @@ import CryptoCurrencyTable from '../components/CryptoCurrencyTable';
 import Navbar from '../components/Navbar';
 
 const TradingPage = () => {
-  const [data, setData] = useState([]);
+  const [dataSet, setDataSet] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -14,8 +14,7 @@ const TradingPage = () => {
           "https://api.coingecko.com/api/v3/coins/markets?vs_currency=CAD&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d&locale=en&precision=2";
         const response = await fetch(priceUrl);
         const data = await response.json();
-        console.log(data);
-        setData(data);
+        setDataSet(data);
       } catch (error) {
         console.log("Failed to retrieve data: ", error);
         setError("Failed to retrieve data. Please try again. ");
@@ -33,11 +32,11 @@ const TradingPage = () => {
   if (error) {
     return <div>Error: {error}</div>
   }
-  console.log("hello first set" + data); // debugging
+  console.log(dataSet);
   return (
     <div className="max-h-screen max-w-screen flex flex-col bg-primary-color">
       <Navbar />
-      <CryptoCurrencyTable coin={data} />
+      <CryptoCurrencyTable coin={dataSet} />
     </div>
   );
 }

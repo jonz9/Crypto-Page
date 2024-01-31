@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Percentage from "./Percentage";
 import Chart from "./Chart";
 
@@ -22,9 +22,13 @@ interface Props {
 }
 
 const CryptoCurrencyTable: React.FC<Props> = (coin) => {
-  const [currencies, setCurrencies] = useState<Coin[]>(coin);
+  const [currencies, setCurrencies] = useState(coin);
 
-  function formatToCAD(val: { toLocaleString: (arg0: string, arg1: { style: string; currency: string; }) => any; }) {
+  useEffect(() => {
+    setCurrencies(coin);
+  }, [coin]);
+
+  function formatToCAD(val: { toLocaleString: (arg0: string, arg1: { style: string; currency: string; }) => unknown; }) {
     const formattedValue = val.toLocaleString("en-CA", {
       style: "currency",
       currency: "CAD",
@@ -53,7 +57,7 @@ const CryptoCurrencyTable: React.FC<Props> = (coin) => {
           </tr>
         </thead>
         <tbody>
-          {currencies.map((coin) => (
+          {currencies.coin.map((coin) => (
             <tr key={coin.id}>
               <td>{coin.market_cap_rank}</td>
               <td>
