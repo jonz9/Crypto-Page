@@ -28,7 +28,12 @@ const CryptoCurrencyTable: React.FC<Props> = (coin) => {
     setCurrencies(coin);
   }, [coin]);
 
-  function formatToCAD(val: { toLocaleString: (arg0: string, arg1: { style: string; currency: string; }) => unknown; }) {
+  function formatToCAD(val: {
+    toLocaleString: (
+      arg0: string,
+      arg1: { style: string; currency: string }
+    ) => unknown;
+  }) {
     const formattedValue = val.toLocaleString("en-CA", {
       style: "currency",
       currency: "CAD",
@@ -56,16 +61,14 @@ const CryptoCurrencyTable: React.FC<Props> = (coin) => {
             <th>Last 7 Days</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="flex flex-col text-primary-text items-center jusitfy-items">
           {currencies.coin.map((coin) => (
-            <tr key={coin.id}>
+            <tr key={coin.id} className="flex gap-5">
               <td>{coin.market_cap_rank}</td>
               <td>
-                <div>
-                  <img src={coin.image} alt={coin.symbol} />
-                  <h4>{coin.name}</h4>
-                  <small>{coin.symbol}</small>
-                </div>
+                <img src={coin.image} alt={coin.symbol} className="h-20 w-20" />
+                <h4>{coin.name}</h4>
+                <small>{coin.symbol}</small>
               </td>
               <td>{formatToCAD(coin.current_price)}</td>
               <Percentage coin={coin.price_change_percentage_1h_in_currency} />

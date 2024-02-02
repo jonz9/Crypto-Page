@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import CryptoCurrencyTable from '../components/CryptoCurrencyTable';
 import Navbar from '../components/Navbar';
+import LoadingScreen from '../components/LoadingScreen';
 
 const TradingPage = () => {
   const [dataSet, setDataSet] = useState([]);
@@ -26,7 +27,7 @@ const TradingPage = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>
+    return <LoadingScreen />
   }
 
   if (error) {

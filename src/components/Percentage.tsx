@@ -3,11 +3,13 @@ interface PercentageProps {
 }
 
 function Percentage({ coin }: PercentageProps) {
+  const coinPercent = coin;
+  if (typeof coin === 'undefined') {
+    return <td>Percentage Unknown</td>
+  }
   function percentageColor() {
     return coin <= 0 ? " falling" : "rising";
   }
-  const coinPercent = coin.toFixed(2);
-  console.log(coinPercent);
   return <td className={percentageColor()}>{coinPercent}%</td>;
 }
 
