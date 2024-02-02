@@ -5,7 +5,7 @@
 Clone repository to local machine
 
 ```bash
-git clone https://github.com/jonz9/MovieStore.git
+git clone https://github.com/jonz9/CryptoKet.git
 ```
 
 ## Installing the Dependencies
