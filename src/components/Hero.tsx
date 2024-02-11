@@ -1,6 +1,6 @@
 import { SignInButton } from "@clerk/clerk-react";
 import { Button } from "./Button";
-import DollarSign from "./DollarSign";
+import ThreeShape from "./ThreeShape";
 
 const Hero = () => {
   return (
@@ -24,14 +24,18 @@ const Hero = () => {
             </Button>
           </SignInButton>
           <SignInButton>
-            <Button variant={"default"} size={"default"} className="font-main">
+            <Button
+              variant={"default"}
+              size={"default"}
+              className="font-main hover:text-primary-header"
+            >
               Sign Up
             </Button>
           </SignInButton>
         </div>
       </div>
       <div className="flex w-full justify-center items-center">
-        <DollarSign width={500} height={500} />
+        <ThreeShape width={500} height={500} />
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ const Chart: React.FC<ChartProps> = ({ sparkline, priceChange }) => {
     ],
     chart: {
       type: "area",
-      height: 150,
+      height: 100,
       sparkline: { enabled: true },
       animations: { enabled: false },
     },
@@ -25,7 +25,7 @@ const Chart: React.FC<ChartProps> = ({ sparkline, priceChange }) => {
   });
 
   function chartColor() {
-    return priceChange <= 0 ? "#ff3131" : "#25df3e";
+    return priceChange <= 0 ? "#ff0000" : "#00ff00";
   }
 
   return (

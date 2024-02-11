@@ -44,7 +44,7 @@ const CryptoCurrencyTable: React.FC<Props> = (coin) => {
 
   return (
     <div className="max-w-screen h-full flex flex-col justify-items items-center bg-primary-color p-20 gap-10 font-main">
-      <div className="text-4xl font-bold text-primary-text">
+      <div className="text-4xl font-bold">
         <h1>Top Cryptocurrency Prices by Market Cap</h1>
       </div>
       <table>
@@ -62,11 +62,11 @@ const CryptoCurrencyTable: React.FC<Props> = (coin) => {
           </tr>
         </thead>
         <tbody className="flex flex-col text-primary-text items-center jusitfy-items">
-          {currencies.coin.map((coin) => (
-            <tr key={coin.id} className="flex gap-5">
+          {currencies.coin.slice(0, 10).map((coin) => (
+            <tr key={coin.id} className="flex gap-5 jusitfy-center items-center">
               <td>{coin.market_cap_rank}</td>
-              <td>
-                <img src={coin.image} alt={coin.symbol} className="h-20 w-20" />
+              <td className="flex flex-col justify-center items-center">
+                <img src={coin.image} alt={coin.symbol} className="h-10 w-10" />
                 <h4>{coin.name}</h4>
                 <small>{coin.symbol}</small>
               </td>

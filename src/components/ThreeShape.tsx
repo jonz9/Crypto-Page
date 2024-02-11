@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import * as THREE from "three";
 
-const DollarSign: React.FC<{ width: number; height: number }> = ({
+const ThreeShape: React.FC<{ width: number; height: number }> = ({
   width,
   height,
 }) => {
@@ -100,4 +100,4 @@ const DollarSign: React.FC<{ width: number; height: number }> = ({
   return <div id="three-container" />;
 };
 
-export default DollarSign;
+export default ThreeShape;
