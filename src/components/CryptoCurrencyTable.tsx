@@ -11,7 +11,7 @@ interface Coin {
   current_price: number;
   price_change_percentage_1h_in_currency: number;
   price_change_percentage_24h_in_currency: number;
-  price_change_percentage_7dh_in_currency: number;
+  price_change_percentage_7d_in_currency: number;
   total_volume: number;
   market_cap: number;
   sparkline_in_7d: number[];
@@ -73,13 +73,13 @@ const CryptoCurrencyTable: React.FC<Props> = (coin) => {
               <td>{formatToCAD(coin.current_price)}</td>
               <Percentage coin={coin.price_change_percentage_1h_in_currency} />
               <Percentage coin={coin.price_change_percentage_24h_in_currency} />
-              <Percentage coin={coin.price_change_percentage_7dh_in_currency} />
+              <Percentage coin={coin.price_change_percentage_7d_in_currency} />
               <td>{formatToCAD(coin.total_volume)}</td>
               <td>{formatToCAD(coin.market_cap)}</td>
               <td>
                 <Chart
                   sparkline={coin.sparkline_in_7d}
-                  priceChange={coin.price_change_percentage_7dh_in_currency}
+                  priceChange={coin.price_change_percentage_7d_in_currency}
                 />
               </td>
             </tr>

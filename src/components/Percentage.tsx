@@ -4,13 +4,14 @@ interface PercentageProps {
 
 function Percentage({ coin }: PercentageProps) {
   const coinPercent = coin;
-  if (typeof coin === 'undefined') {
-    return <td>Percentage Unknown</td>
+  if (typeof coin === "undefined") {
+    return <td>Percentage Unknown</td>;
   }
   function percentageColor() {
-    return coin <= 0 ? "#ff0000" : "00ff00";
+    return coin <= 0 ? "ff0000" : "00ff00";
   }
-  return <td className={percentageColor()}>{coinPercent.toFixed(2)}%</td>;
+
+  return (<td className={percentageColor()}>{coinPercent.toFixed(1)}%</td>);
 }
 
 export default Percentage;

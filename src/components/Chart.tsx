@@ -10,7 +10,7 @@ const Chart: React.FC<ChartProps> = ({ sparkline, priceChange }) => {
   const [chartOptions] = useState({
     series: [
       {
-        data: [...sparkline.price], // not getting second array
+        data: [...sparkline.price],
       },
     ],
     chart: {
@@ -25,16 +25,16 @@ const Chart: React.FC<ChartProps> = ({ sparkline, priceChange }) => {
   });
 
   function chartColor() {
-    return priceChange <= 0 ? "#ff0000" : "#00ff00";
+    return priceChange <= 0 ? "#ff3131" : "#25df3e";
   }
 
   return (
     <ReactApexChart
       options={chartOptions as any}
       series={chartOptions.series}
-      className=""
+      className="chart"
     />
   );
-}
+};
 
 export default Chart;
