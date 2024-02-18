@@ -15,7 +15,7 @@ const Chart: React.FC<ChartProps> = ({ sparkline, priceChange }) => {
     ],
     chart: {
       type: "area",
-      height: 100,
+      height: 40,
       sparkline: { enabled: true },
       animations: { enabled: false },
     },

@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react';
-import CryptoCurrencyTable from '../components/CryptoCurrencyTable';
-import Navbar from '../components/Navbar';
-import LoadingScreen from '../components/LoadingScreen';
+import { useEffect, useState } from "react";
+import CryptoCurrencyTable from "../components/CryptoCurrencyTable";
+import Navbar from "../components/Navbar";
+import LoadingScreen from "../components/LoadingScreen";
+import Footer from "../components/Footer";
+import End from "../components/End";
+import { easeIn, motion } from "framer-motion";
 
 const TradingPage = () => {
   const [dataSet, setDataSet] = useState([]);
@@ -27,19 +30,27 @@ const TradingPage = () => {
   }, []);
 
   if (loading) {
-    return <LoadingScreen />
+    return <LoadingScreen />;
   }
 
   if (error) {
-    return <div>Error: {error}</div>
+    return <div>Error: {error}</div>;
   }
   console.log(dataSet);
   return (
-    <div className="max-h-screen max-w-screen flex flex-col bg-primary-color">
+    <div className="h-fit max-w-screen flex flex-col bg-primary-color">
       <Navbar />
       <CryptoCurrencyTable coin={dataSet} />
+      <motion.main
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, ease: easeIn }}
+      >
+        <Footer />
+        <End />
+      </motion.main>
     </div>
   );
-}
+};
 
-export default TradingPage
+export default TradingPage;
