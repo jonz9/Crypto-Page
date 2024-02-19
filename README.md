@@ -22,4 +22,4 @@ npm run dev
 After running the repository through the command line, it will appear at `http://localhost:5173`, displaying the CryptoKet homepage.
 The user may:
 - Get Started by Signing In through the Clerk authentication library
-- Navigate to cryptocurrencies page displaying current crypto data
+- Navigate to cryptocurrencies page displaying current crypto data by clicking the yellow arrow button at the bottom!
