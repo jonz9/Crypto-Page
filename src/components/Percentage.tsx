@@ -8,10 +8,16 @@ function Percentage({ coin }: PercentageProps) {
     return <td>Percentage Unknown</td>;
   }
   function percentageColor() {
-    return coin <= 0 ? "ff0000" : "00ff00";
+    if (coin <= 0) {
+      return "text-red-500";
+    } else {
+      return "text-green-500";
+    }
   }
 
-  return (<td className={percentageColor()}>{coinPercent.toFixed(1)}%</td>);
+  return (
+    <td className={`${percentageColor()}`}>{coinPercent.toFixed(1)}%</td>
+  );
 }
 
 export default Percentage;

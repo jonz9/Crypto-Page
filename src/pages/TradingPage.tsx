@@ -44,7 +44,7 @@ const TradingPage = () => {
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, ease: easeIn }}
+        transition={{ duration: 1.1, ease: easeIn }}
       >
         <Footer />
         <End />

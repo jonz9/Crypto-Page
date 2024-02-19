@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { MouseEventHandler, useEffect, useState } from "react";
 import Percentage from "./Percentage";
 import Chart from "./Chart";
 import { easeIn, motion } from "framer-motion";
@@ -40,6 +40,13 @@ const CryptoCurrencyTable: React.FC<Props> = ({ coin }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const pageNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+  const onClick: MouseEventHandler<HTMLButtonElement> = (event) => {
+    const number = parseInt(event.currentTarget.textContent || "0", 10);
+    setCurrentPage(number);
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="max-w-screen h-full flex flex-col justify-items items-center bg-primary-color p-20 gap-10">
       <div>
@@ -68,62 +75,77 @@ const CryptoCurrencyTable: React.FC<Props> = ({ coin }) => {
               </tr>
             </thead>
             <tbody className="text-primary-text">
-              {currencies.slice(0, 10).map((coin) => (
-                <tr key={coin.id} className="odd:bg-gray-800">
-                  <td className="border px-4 py-2">{coin.market_cap_rank}</td>
-                  <td className="border px-4 py-2 flex h-52 items-center">
-                    <img
-                      src={coin.image}
-                      alt={coin.symbol}
-                      className="max-h-20 max-w-20 pl-2 pr-5"
-                    />
-                    <div>
-                      <h3 className="font-bold ">{coin.name}</h3>
-                      <small>{coin.symbol}</small>
-                    </div>
-                  </td>
-                  <td className="border px-4 py-2">
-                    {formatToCAD(coin.current_price)}
-                  </td>
-                  <td className="border px-4 py-2">
-                    <Percentage
-                      coin={coin.price_change_percentage_1h_in_currency}
-                    />
-                  </td>
-                  <td className="border px-4 py-2">
-                    <Percentage
-                      coin={coin.price_change_percentage_24h_in_currency}
-                    />
-                  </td>
-                  <td className="border px-4 py-2">
-                    <Percentage
-                      coin={coin.price_change_percentage_7d_in_currency}
-                    />
-                  </td>
-                  <td className="border px-4 py-2">
-                    {formatToCAD(coin.total_volume)}
-                  </td>
-                  <td className="border px-4 py-2">
-                    {formatToCAD(coin.market_cap)}
-                  </td>
-                  <td className="border px-4 py-2">
-                    <Chart
-                      sparkline={coin.sparkline_in_7d}
-                      priceChange={coin.price_change_percentage_7d_in_currency}
-                    />
-                  </td>
-                </tr>
-              ))}
+              {currencies
+                .slice((currentPage - 1) * 10, currentPage * 10)
+                .map((coin) => (
+                  <tr key={coin.id} className="odd:bg-gray-800">
+                    <td className="border px-4 py-2">{coin.market_cap_rank}</td>
+                    <td className="border px-4 py-2 flex h-52 items-center">
+                      <img
+                        src={coin.image}
+                        alt={coin.symbol}
+                        className="max-h-20 max-w-20 pl-2 pr-5"
+                      />
+                      <div>
+                        <h3 className="font-bold ">{coin.name}</h3>
+                        <small>{coin.symbol}</small>
+                      </div>
+                    </td>
+                    <td className="border px-4 py-2">
+                      {formatToCAD(coin.current_price)}
+                    </td>
+                    <td className="border px-4 py-2">
+                      <Percentage
+                        coin={coin.price_change_percentage_1h_in_currency}
+                      />
+                    </td>
+                    <td className="border px-4 py-2">
+                      <Percentage
+                        coin={coin.price_change_percentage_24h_in_currency}
+                      />
+                    </td>
+                    <td className="border px-4 py-2">
+                      <Percentage
+                        coin={coin.price_change_percentage_7d_in_currency}
+                      />
+                    </td>
+                    <td className="border px-4 py-2">
+                      {formatToCAD(coin.total_volume)}
+                    </td>
+                    <td className="border px-4 py-2">
+                      {formatToCAD(coin.market_cap)}
+                    </td>
+                    <td className="border px-4 py-2">
+                      <Chart
+                        sparkline={coin.sparkline_in_7d}
+                        priceChange={
+                          coin.price_change_percentage_7d_in_currency
+                        }
+                      />
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </motion.main>
         </table>
-        <ul className="p-2">
-          {pageNumbers.map((number) => (
-            <li key={number} className="">
-              {/* <button className="bg-brown text-primary-header font-italic" onClick={setCurrentPage(number)}>number</button> */}
-            </li>
-          ))}
-        </ul>
+        <div>
+          <ul className="p-10 flex font-main font-bold text-lg gap-5">
+            {pageNumbers.map((number) => (
+              <li key={number}>
+                <button
+                  className={`bg-primary-header py-3 px-5 rounded-lg text-black hover:underline ${
+                    currentPage === number
+                      ? "border-4 border-slate-200 outline-2 outline-black"
+                      : ""
+                  }`}
+                  onClick={onClick}
+                >
+                  {number}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

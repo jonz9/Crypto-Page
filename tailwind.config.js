@@ -31,6 +31,8 @@ export default {
           header_hover: "#ba951e",
           text: "#F2F7F2",
           hover: "#465362",
+          green: colors.green[500],
+          red: colors.red[500],
         },
         secondary: {
           DEFAULT: colors.neutral[200],
