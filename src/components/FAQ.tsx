@@ -1,11 +1,9 @@
-import { Button } from "./Button";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "/src/components/ui/Accordion";
-import { SlArrowRight } from "react-icons/sl";
+} from "../components/ui/Accordion";
 
 const FAQ = () => {
   return (

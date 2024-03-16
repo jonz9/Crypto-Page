@@ -15,7 +15,7 @@ interface Coin {
   price_change_percentage_7d_in_currency: number;
   total_volume: number;
   market_cap: number;
-  sparkline_in_7d: number[];
+  sparkline_in_7d: { price: number[] };
 }
 
 interface Props {
@@ -44,7 +44,7 @@ const CryptoCurrencyTable: React.FC<Props> = ({ coin }) => {
     const number = parseInt(event.currentTarget.textContent || "0", 10);
     setCurrentPage(number);
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (

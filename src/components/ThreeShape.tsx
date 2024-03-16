@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { Canvas, useFrame, useThree } from "react-three-fiber";
 import * as THREE from "three";
 
 const PolyhedronComponent: React.FC = () => {
-  const polyhedronRef = useRef<THREE.Mesh>();
+  const polyhedronRef = useRef<THREE.Mesh>(null);
 
   useFrame(({ clock }) => {
     if (polyhedronRef.current) {
