@@ -24,5 +24,6 @@ The user may:
 - Get Started by Signing In through the Clerk authentication library
 - Navigate to cryptocurrencies page displaying current crypto data by clicking the yellow arrow button at the bottom!
 
-# Deployed with Vercel
+
+## Deployed with Vercel
 https://crypto-ket-xi.vercel.app/
