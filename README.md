@@ -1,5 +1,8 @@
 # CryptoKet 
 ## Cryptocurrency Tracking Website 
+Deployed with Vercel
+https://crypto-ket-xi.vercel.app/
+
 ### React + Typescript + Tailwind + Clerk
 
 Clone repository to local machine
@@ -24,6 +27,3 @@ The user may:
 - Get Started by Signing In through the Clerk authentication library
 - Navigate to cryptocurrencies page displaying current crypto data by clicking the yellow arrow button at the bottom!
 
-
-## Deployed with Vercel
-https://crypto-ket-xi.vercel.app/
