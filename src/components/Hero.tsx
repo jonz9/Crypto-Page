@@ -35,7 +35,7 @@ const Hero = () => {
           </div>
         </div>
         <div className="flex w-full justify-center items-center">
-          <ThreeShape width={500} height={500} />
+          <ThreeShape />
         </div>
       </div>
   );
